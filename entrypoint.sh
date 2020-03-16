@@ -25,14 +25,15 @@ TEMP=$(mktemp -d)
 git config --global user.email $GIT_EMAIL
 git config --global user.name $GIT_USER
 git clone $REPO $TEMP
-cd $TEMP
-git checkout $BRANCH
+# cd $TEMP
+# git checkout $BRANCH
 
 # Sync $TARGET folder to $REPO state repository with excludes
 # echo "running 'rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET'"
 # rsync -r ./$SOURCE/ $TEMP/$TARGET
 # rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET
 pwd
+ls
 
 # Success finish early if there are no changes
 if [ -z "$(git status --porcelain)" ]; then
