@@ -28,6 +28,7 @@ git clone $REPO
 cd ballerina-dev-website
 git checkout $BRANCH
 cd .. 
+ls
 # Sync $TARGET folder to $REPO state repository with excludes
 # echo "running 'rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET'"
 rsync -r $SOURCE/ ballerina-dev-website/$TARGET
