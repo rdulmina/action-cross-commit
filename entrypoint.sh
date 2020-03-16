@@ -24,16 +24,15 @@ TEMP=$(mktemp -d)
 # Setup git
 git config --global user.email $GIT_EMAIL
 git config --global user.name $GIT_USER
-git clone $REPO $TEMP
-# cd $TEMP
-# git checkout $BRANCH
-
+git clone $REPO
+cd ballerina-dev-website
+git checkout $BRANCH
+cd .. 
 # Sync $TARGET folder to $REPO state repository with excludes
 # echo "running 'rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET'"
-# rsync -r ./$SOURCE/ $TEMP/$TARGET
+rsync -r $SOURCE/ ballerina-dev-website/$TARGET
 # rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET
-rsync -r $SOURCE/ $TEMP/$TARGET
-cd $TEMP
+cd ballerina-dev-website
 # Success finish early if there are no changes
 if [ -z "$(git status --porcelain)" ]; then
   echo "no changes to sync"
