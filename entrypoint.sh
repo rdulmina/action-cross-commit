@@ -32,9 +32,8 @@ git clone $REPO $TEMP
 # echo "running 'rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET'"
 # rsync -r ./$SOURCE/ $TEMP/$TARGET
 # rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET
-pwd
-ls
-
+rsync -r $SOURCE/ $TEMP/$TARGET
+cd $TEMP
 # Success finish early if there are no changes
 if [ -z "$(git status --porcelain)" ]; then
   echo "no changes to sync"
