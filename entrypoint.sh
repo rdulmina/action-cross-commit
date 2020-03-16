@@ -32,7 +32,7 @@ git checkout $BRANCH
 # echo "running 'rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET'"
 # rsync -r ./$SOURCE/ $TEMP/$TARGET
 # rsync -avh --delete "${EXCLUDES[@]}" $GITHUB_WORKSPACE/$SOURCE/ $TEMP/$TARGET
-ls
+pwd
 
 # Success finish early if there are no changes
 if [ -z "$(git status --porcelain)" ]; then
